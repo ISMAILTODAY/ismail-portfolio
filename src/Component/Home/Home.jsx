@@ -37,12 +37,13 @@ const Home = () => {
             </div>
 
             {/* about section */}
-
+            <hr className='w-[20rem] absolute left-[20rem] bottom-[10rem]' />
             <section id='about' className="px-5 pt md:px-24 flex  justify-center items-center md:flex-row flex-col-reverse gap-16 mt-10 duration-1000">
                 <div>
                     <img className="rounded-lg" src="https://i.ibb.co/g4GZCB3/ismail.jpg" alt="" />
                 </div>
                 <div>
+
                     <h1 className="text-4xl text-center mb-5 font-bold uppercase">
                         About me
                     </h1>
