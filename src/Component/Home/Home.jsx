@@ -1,15 +1,50 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, } from '@fortawesome/free-solid-svg-icons'
-import { FaFacebook, FaLinkedin, FaGithub, FaRegPaperPlane } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaGithub, FaRegPaperPlane, FaCheckCircle } from "react-icons/fa";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import './Home.css'
 import { TypeAnimation } from 'react-type-animation';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useState } from 'react';
+AOS.init();
 
 
 
 
 const Home = () => {
     const currentYear = new Date().getFullYear();
+    const [sending, setSending] = useState(false)
+    const [successfull, setSuccessfull] = useState(false)
+    const [error, setError] = useState(false)
+
+    const info = (e) => {
+        e.preventDefault();
+        setSending(true);
+        const form = e.target;
+        let data = new FormData(form);
+        fetch("https://script.google.com/macros/s/AKfycbyY8HoXh9y7HjhuA0_-FIFo7DhIQ_QvtVxIhHEX_x-ptCvn8989kOMEqR-Lx0m4SYKgog/exec", {
+            method: "POST",
+            body: data
+        })
+            .then(res => res.text())
+            .then(data => {
+                if (data === 'data save successfull') {
+                    console.log(data)
+                    setSuccessfull(true)
+                    setInterval(() => {
+                        setSuccessfull(false)
+                    }, 10000);
+                    setSending(false);
+                    form.reset()
+                }
+                else {
+                    setError(true)
+                }
+
+
+            })
+    }
 
 
     return (
@@ -37,7 +72,6 @@ const Home = () => {
             </div>
 
             {/* about section */}
-            <hr className='w-[20rem] absolute left-[20rem] bottom-[10rem]' />
             <section id='about' className="px-5 pt md:px-24 flex  justify-center items-center md:flex-row flex-col-reverse gap-16 mt-10 duration-1000">
                 <div>
                     <img className="rounded-lg" src="https://i.ibb.co/g4GZCB3/ismail.jpg" alt="" />
@@ -76,6 +110,7 @@ const Home = () => {
 
             <section id='services' className="px-5 md:px-24">
                 <h1 className="text-4xl text-center mt-10 font-bold uppercase">Service</h1>
+
                 <div className="flex justify-center mt-10 ">
                     <div className="bg-black w-96 border-2 border-[#e91e63] duration-1000 hover:bg-[#e91e63] hover:scale-75 ">
                         <figure className="p-3  bg-black hover:bg-[#e91e63] duration-1000 border-0 outline-none">
@@ -94,29 +129,69 @@ const Home = () => {
                 <div className="flex justify-center">
                     <div>
                         <h1 className="text-center text-4xl font-bold my-14 uppercase">Skills</h1>
-                        <div className="grid md:grid-cols-4 gap-16">
-                            <div className="md:border md:border-[#e91e63] hover:border-0">
+                        <div className="grid md:grid-cols-4 gap-16" >
+                            <div
+                                className="md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto py-5 hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/SB7LsrS/html2.jpg" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-down"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto py-5  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/3C78LJy/css2.jpg" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-down"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto py-5  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/Jpb8c27/js2.jpg" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-down"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto py-3  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/t2GGCf8/react2.png" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto py-3  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/jRhfK61/react-router2.jpg" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto pt-5  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/8jJJkWz/express2.jpg" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto pt-5  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/BHDh6dM/node2.png" alt="" />
                             </div>
-                            <div className=" md:border md:border-[#e91e63] hover:border-0">
+                            <div
+                                className=" md:border md:border-[#e91e63] hover:border-0"
+
+                                data-aos="fade-down"
+                                data-aos-duration="1000"
+                            >
                                 <img className="mx-auto p-5  hover:scale-[1.5] duration-1000 origin-bottom hover:translate-y-7" src="https://i.ibb.co/s2bkd8D/mongodb.png" alt="" />
                             </div>
                         </div>
@@ -136,7 +211,7 @@ const Home = () => {
 
                         <div className="w-full absolute p-2 bottom-0 bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[#e91e63] h-full opacity-0 transition-all duration-1000 hover:opacity-100">
                             <h1 className="text-center text-2xl font-bold">Sports Academies</h1>
-                            <div className="text-[12px] mt-4">
+                            <div className="text-[12px] mt-3">
                                 <p>
                                     01. This is a online based courses buy and sell website
                                 </p>
@@ -208,7 +283,7 @@ const Home = () => {
             {/* contact section */}
 
             <section id='contact' className="px-5 md:px-24">
-                <div className="md:flex justify-evenly items-center
+                <div className="relative md:flex justify-evenly items-center
                  py-10">
                     <div className="md:w-1/2 ml-16 md:ml-0 mb-10">
                         <h1 className=" text-5xl font-bold mb-5 uppercase">Contact me</h1>
@@ -223,11 +298,22 @@ const Home = () => {
                             <button className="text-white btn border-0 bg-[#e91e63] hover:bg-[#c2185b] mt-10" >Download Resume </button >
                         </a>
                     </div>
-                    <div className="md:w-1/2 flex flex-col gap-5">
-                        <input type="text" placeholder="Your Name" className="bg-[#262626] outline-none w-full p-2 " />
-                        <input type="text" placeholder="Your Email" className="bg-[#262626] outline-none w-full p-2" />
-                        <textarea className="textarea bg-[#262626] outline-none " placeholder="Your message"></textarea>
-                        <button className="text-white btn border-0 bg-[#e91e63] hover:bg-[#c2185b] mt-10" ><FaRegPaperPlane></FaRegPaperPlane> Send </button >
+                    <form onSubmit={info} action=""
+                        className=" md:w-1/2 flex flex-col gap-5">
+                        <input type="text" name='Name' placeholder="Your Name" className="bg-[#262626] outline-none w-full p-2 " />
+                        <input type="text" name='Email' placeholder="Your Email" className="bg-[#262626] outline-none w-full p-2" />
+                        <textarea name='Message' className="textarea bg-[#262626] outline-none " placeholder="Your message"></textarea>
+                        <button type='submit' className={`text-white btn border-0 bg-[#e91e63] hover:bg-[#c2185b] mt-10 ${sending ? "cursor-not-allowed opacity-50" : "opacity-100"}`} ><FaRegPaperPlane></FaRegPaperPlane> Send {sending ? <TypeAnimation
+                            sequence={['...', 1000, '', 1000]}
+                            cursor={false}
+                            repeat={Infinity}
+                        ></TypeAnimation> : ''} </button >
+                    </form>
+                    <div className={`absolute bottom-0 right-0 text-green-500 ${successfull ? 'block' : 'invisible'}`}>
+                        <h1>Message send successfull <FaCheckCircle className='inline-flex'></FaCheckCircle></h1>
+                    </div >
+                    <div className={`absolute bottom-0 right-0 text-red-500 ${error ? 'block' : 'invisible'}`}>
+                        <h1>A problem is occurred please contact me via Email.</h1>
                     </div>
 
                 </div>

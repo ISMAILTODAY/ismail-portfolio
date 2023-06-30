@@ -61,7 +61,7 @@ const NavigationBar = () => {
                         {navOption}
                     </ul>
                 </div>
-                <a className="text-3xl uppercase"> <span className="lowercase text-2xl">i</span>smail</a>
+                <a className="pl-10 text-3xl uppercase"> <span className="lowercase text-2xl">i</span>smail</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
