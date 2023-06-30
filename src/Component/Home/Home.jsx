@@ -313,7 +313,7 @@ const Home = () => {
                         <h1>Message send successfull <FaCheckCircle className='inline-flex'></FaCheckCircle></h1>
                     </div >
                     <div className={`absolute bottom-0 right-0 text-red-500 ${error ? 'block' : 'invisible'}`}>
-                        <h1>A problem is occurred please contact me via Email.</h1>
+                        <h1>A problem is occurred please contact me via ismailw104@gmail.com.</h1>
                     </div>
 
                 </div>
