@@ -42,13 +42,14 @@ const Home = () => {
                     setError(true)
                 }
 
+            });
 
-            })
     }
 
 
     return (
-        <div className=" bg-black text-white">
+        <div className="bg-black  text-white">
+
             <NavigationBar></NavigationBar>
             <div id='home' className="relative px-5 pt-[45rem] bg-[url('https://i.ibb.co/7VHd17z/ismail3.png')] bg-no-repeat bg-center md:bg-right">
                 <div className="absolute top-[2rem] left-[1rem] md:top-[15rem] md:left-[10rem]">
@@ -81,7 +82,7 @@ const Home = () => {
                     <h1 className="text-4xl text-center mb-5 font-bold uppercase">
                         About me
                     </h1>
-                    <p>My name is Ismail. I am a junior web developer. I have acquired proficiency in HTML, CSS, Boostrap, Tailwind CSS, JavaScript, Reactjs Expressjs, Node, MongoDB.
+                    <p>My name is Ismail. I am a junior web developer. I have acquired proficiency in HTML, CSS, Boostrap, Tailwind CSS, JavaScript, Reactjs and familiar to Expressjs, Nodejs and MongoDB.
                     </p>
                     <p className='py-2'>
                         I have proficiency also many tools like Git, Github, VS code, Netlify, Firebase, Vercel etc.
@@ -111,13 +112,29 @@ const Home = () => {
             <section id='services' className="px-5 md:px-24">
                 <h1 className="text-4xl text-center mt-10 font-bold uppercase">Service</h1>
 
-                <div className="flex justify-center mt-10 ">
+                <div className="flex justify-center mt-10 gap-10 ">
+                    <div className="bg-black w-96 border-2 border-[#e91e63] duration-1000 hover:bg-[#e91e63] hover:scale-75 ">
+                        <figure className="p-3  bg-black hover:bg-[#e91e63] duration-1000 border-0 outline-none">
+                            <img src="https://i.ibb.co/T0MdK00/pixelperfect.png" alt="Shoes" className="rounded h-[12rem] w-full" />
+                        </figure>
+                        <div className=" text-center">
+                            <h2 className="text-2xl mb-3">Pixel Perfect Design</h2>
+                        </div>
+                    </div>
                     <div className="bg-black w-96 border-2 border-[#e91e63] duration-1000 hover:bg-[#e91e63] hover:scale-75 ">
                         <figure className="p-3  bg-black hover:bg-[#e91e63] duration-1000 border-0 outline-none">
                             <img src="https://i.ibb.co/71YGBkd/font-end.jpg" alt="Shoes" className="rounded" />
                         </figure>
                         <div className=" text-center">
                             <h2 className="text-2xl mb-3">Font-end Development</h2>
+                        </div>
+                    </div>
+                    <div className="bg-black w-96 border-2 border-[#e91e63] duration-1000 hover:bg-[#e91e63] hover:scale-75 ">
+                        <figure className="p-3  bg-black hover:bg-[#e91e63] duration-1000 border-0 outline-none">
+                            <img src="https://i.ibb.co/tL5FVPX/responsive-web-design.jpg" alt="Shoes" className="rounded" />
+                        </figure>
+                        <div className=" text-center">
+                            <h2 className="text-2xl mb-3">Responsive web design</h2>
                         </div>
                     </div>
                 </div>
@@ -206,7 +223,12 @@ const Home = () => {
                     <h1 className="text-center text-4xl font-bold my-16 uppercase">Projects</h1>
                 </div>
                 <div className="grid md:grid-cols-3 gap-10 ">
-                    <div className="relative">
+                    <div
+                        className="relative"
+
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
                         <img className="rounded-xl" src="https://i.ibb.co/sb76x2p/sports-academies.png" alt="" />
 
                         <div className="w-full absolute p-2 bottom-0 bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[#e91e63] h-full opacity-0 transition-all duration-1000 hover:opacity-100">
@@ -230,7 +252,12 @@ const Home = () => {
                         </div>
 
                     </div>
-                    <div className="relative">
+                    <div
+                        className="relative"
+
+                        data-aos="fade-down"
+                        data-aos-duration="1000"
+                    >
                         <img className="rounded-xl" src="https://i.ibb.co/6rMKydp/toyforest.png" alt="" />
 
                         <div className="w-full absolute p-2 bottom-0 bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[#e91e63] h-full opacity-0 transition-all duration-1000 hover:opacity-100">
@@ -253,7 +280,12 @@ const Home = () => {
 
                         </div>
                     </div>
-                    <div className="relative">
+                    <div
+                        className="relative"
+
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                    >
                         <img className="rounded-xl" src="https://i.ibb.co/XJgY5QK/goodchef4.png" alt="" />
 
                         <div className="w-full absolute p-2 bottom-0 bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[#e91e63] h-full opacity-0 transition-all duration-1000 hover:opacity-100">
@@ -284,7 +316,7 @@ const Home = () => {
 
             <section id='contact' className="px-5 md:px-24">
                 <div className="relative md:flex justify-evenly items-center
-                 py-10">
+             py-10">
                     <div className="md:w-1/2 ml-16 md:ml-0 mb-10">
                         <h1 className=" text-5xl font-bold mb-5 uppercase">Contact me</h1>
                         <p><FontAwesomeIcon icon={faPhone} /> +8801887870604</p>
@@ -300,8 +332,8 @@ const Home = () => {
                     </div>
                     <form onSubmit={info} action=""
                         className=" md:w-1/2 flex flex-col gap-5">
-                        <input type="text" name='Name' placeholder="Your Name" className="bg-[#262626] outline-none w-full p-2 " />
-                        <input type="text" name='Email' placeholder="Your Email" className="bg-[#262626] outline-none w-full p-2" />
+                        <input type="text" name='Name' placeholder="Your Name" className="bg-[#262626] outline-none w-full p-2 rounded-lg " />
+                        <input type="text" name='Email' placeholder="Your Email" className="bg-[#262626] outline-none w-full p-2 rounded-lg" />
                         <textarea name='Message' className="textarea bg-[#262626] outline-none " placeholder="Your message"></textarea>
                         <button type='submit' className={`text-white btn border-0 bg-[#e91e63] hover:bg-[#c2185b] mt-10 ${sending ? "cursor-not-allowed opacity-50" : "opacity-100"}`} ><FaRegPaperPlane></FaRegPaperPlane> Send {sending ? <TypeAnimation
                             sequence={['...', 1000, '', 1000]}
@@ -327,8 +359,8 @@ const Home = () => {
                     <p>Copyright © {currentYear} - All right reserved by Ismail</p>
                 </div>
             </footer>
-
         </div>
+
     );
 };
 
